@@ -1,0 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+font-family: 'roboto';
+}
+.glass{
+  background-image:linear-gradient(to bottom right, #ffffff33, #fdfafa0c);
+  backdrop-filter: "blur(10px)"; 
+}
