@@ -9,58 +9,58 @@ import '../App.css';
 
 const Leftbar = () => {
   return (
-    <Box  sx={{padding:'10px',height:"100%", width:'100%', }} >
+    <Box  sx={{padding:'10px',height:"93%", width:'100%', }} >
       <Card bgcolor="secondary" sx={{backgroundColor:'slateblue', height:'100%', padding:'10px', borderRadius:'10px'}}>
-        <Box display={"flex"} alignItems={"center"} justifyContent={"space-around"} mb={5}>
-        <Avatar sx={{width:70, height:70}}
-        src="../public/dredd.png"
+        <Box display={"flex"} alignItems={"center"} justifyContent={"space-around"} mb={2}>
+        <Avatar sx={{width:60, height:60}}
+        src="/dredd.png"
         />
         <Typography variant="h5" color="white">DREDD</Typography>
         </Box>
         <Divider />
-        <List sx={{mb:'60px'}}>
+        <List>
           <Typography variant="body1 " color="white" sx={{margin:'5px'}}>Admin Tools</Typography>
-          <ListItem sx={{mt:'10px'}} components={Link} href="#">
+          <ListItem components={Link} href="#">
             <ListItemAvatar sx={{ color:'white' }} >
-              <VisibilityIcon sx={{ width:50, height:40}} />
+              <VisibilityIcon sx={{ width:25, height:25}} />
               </ListItemAvatar> 
             <ListItemText primary="Overview" sx={{ color:'white'}}/>
           </ListItem>
 
-          <ListItem sx={{mt:'10px'}}>
+          <ListItem>
             <ListItemAvatar sx={{ color:'white' }} >
-              <InventoryIcon sx={{ width:50, height:40}} />
+              <InventoryIcon sx={{ width:25, height:25}} />
               </ListItemAvatar> 
             <ListItemText primary="Products" sx={{ color:'white'}}/>
           </ListItem>
           
-          <ListItem sx={{mt:'10px'}}>
+          <ListItem>
             <ListItemAvatar sx={{ color:'white' }} >
-              <CampaignIcon sx={{ width:50, height:40}} />
+              <CampaignIcon sx={{ width:25, height:25}} />
               </ListItemAvatar> 
             <ListItemText primary="Campaign" sx={{ color:'white'}}/>
           </ListItem>
-          <ListItem sx={{mt:'10px'}}>
+          <ListItem>
             <ListItemAvatar sx={{ color:'white' }} >
-              <PaymentIcon sx={{ width:50, height:40}} />
+              <PaymentIcon sx={{ width:25, height:25}} />
               </ListItemAvatar> 
             <ListItemText primary="Payment" sx={{ color:'white'}}/>
           </ListItem>
-          <ListItem sx={{mt:'10px'}}>
+          <ListItem>
             <ListItemAvatar sx={{ color:'white' }} >
-              <DehazeIcon sx={{ width:50, height:40}} />
+              <DehazeIcon sx={{ width:25, height:25}} />
               </ListItemAvatar> 
             <ListItemText primary="Statement" sx={{ color:'white'}}/>
           </ListItem>
-          <ListItem sx={{mt:'10px'}}>
+          <ListItem>
             <ListItemAvatar sx={{ color:'white' }} >
-              <SettingsIcon sx={{ width:50, height:40}} />
+              <SettingsIcon sx={{ width:25, height:25}} />
               </ListItemAvatar> 
             <ListItemText primary="Setting" sx={{ color:'white'}}/>
           </ListItem>
-          <ListItem sx={{mt:'10px'}}>
+          <ListItem>
             <ListItemAvatar sx={{ color:'white' }} >
-              <InventoryIcon sx={{ width:50, height:40}} />
+              <InventoryIcon sx={{ width:25, height:25}} />
               </ListItemAvatar> 
             <ListItemText primary="Overview" sx={{ color:'white'}}/>
           </ListItem>

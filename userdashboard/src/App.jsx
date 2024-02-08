@@ -10,9 +10,9 @@ function App() {
 
 
   return (
-   <Box sx={{padding:'20px', backgroundColor:'whitesmoke'}}>
+   <Box sx={{padding:'5px', backgroundColor:'whitesmoke'}}>
 
-  <Grid container spacing={4} sx={{ height:'95vh', justifyContent:'space-between'}} >
+  <Grid container spacing={2} sx={{ height:'100%', justifyContent:'space-between'}} >
 <Grid item xs={2} >
   <Leftbar/>
 </Grid>

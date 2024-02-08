@@ -7,3 +7,8 @@ font-family: 'roboto';
   background-image:linear-gradient(to bottom right, #ffffff33, #fdfafa0c);
   backdrop-filter: "blur(10px)"; 
 }
+.cardStyled{
+  background-image: url(/userdashboard/public/background1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
