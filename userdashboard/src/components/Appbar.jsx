@@ -4,7 +4,7 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-
+import { motion} from 'framer-motion';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -61,7 +61,24 @@ marginTop:'10px',
     </Card>
     <Box gap={2} sx={{display:'flex', placeItems:'center'}}>
 
-    <Button variant='contained' sx={{backgroundColor:'slateblue'}} startIcon={<CloudUploadIcon/>}>
+    <Button component={motion.button} initial={{
+  opacity:0,
+  scale: 0.5,
+}}
+animate={{
+  opacity:1,
+  scale:1,
+  transition:{
+    delay: 0.5,
+    ease: 'easeOut'
+  }}} whileHover={{
+    scale:1.1,
+    transition:{
+      delay:0,
+      ease:'easeOut'
+    }
+    
+  }} variant='contained' sx={{backgroundColor:'slateblue'}} startIcon={<CloudUploadIcon/>}>
       Upload Product
     </Button>
 
