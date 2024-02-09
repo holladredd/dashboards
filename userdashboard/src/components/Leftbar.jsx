@@ -6,20 +6,76 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import SettingsIcon from '@mui/icons-material/Settings';
 import '../App.css';
+import styled from "@emotion/styled";
+import {motion} from 'framer-motion';
 
+
+
+const Holder = styled(Box)(() =>({
+ padding:'10px',
+ height:'93%',
+ width:'100%',
+
+}));
 const Leftbar = () => {
+
+
   return (
-    <Box  sx={{padding:'10px',height:"93%", width:'100%', }} >
+    <Holder className="scale-in-center">
       <Card bgcolor="secondary" sx={{backgroundColor:'slateblue', height:'100%', padding:'10px', borderRadius:'10px'}}>
         <Box display={"flex"} alignItems={"center"} justifyContent={"space-around"} mb={2}>
-        <Avatar sx={{width:60, height:60}}
+       <motion.div initial={{ 
+            opacity: 0,
+          x:0,
+          y:0
+          }}
+          animate={{ 
+    x: 2, 
+    y: 4, 
+    opacity: 1 }}
+    whileHover={{ 
+      scale:1.3
+  }}
+  style={{width:'60', height:'60'}}
+    >
+
+        <Avatar
+           sx={{width:60, height:60}}
         src="/dredd.png"
         />
-        <Typography variant="h5" color="white">DREDD</Typography>
+    </motion.div>
+
+        <Typography component={motion.h5} variant="h5" color="white"
+ initial={{ 
+        opacity: 0,
+      x:0,
+      y:0
+      }}
+      animate={{ 
+x: 2, 
+y: 4, 
+opacity: 1 }}
+whileHover={{ 
+  scale:1.3
+}}
+>DREDD</Typography>
         </Box>
         <Divider />
         <List>
-          <Typography variant="body1 " color="white" sx={{margin:'5px'}}>Admin Tools</Typography>
+          <Typography variant="body1 " component={motion.p} color="white" sx={{margin:'2px'}}
+        initial={{ 
+            opacity: 0,
+          x:0,
+          y:0
+          }}
+          animate={{ 
+    x: 2, 
+    y: 4, 
+    opacity: 1 }}
+    whileHover={{ 
+      scale:1.3
+  }}
+>Admin Tools</Typography>
           <ListItem components={Link} href="#">
             <ListItemAvatar sx={{ color:'white' }} >
               <VisibilityIcon sx={{ width:25, height:25}} />
@@ -72,7 +128,7 @@ const Leftbar = () => {
         </Paper>
       </Card>
 
-    </Box>
+    </Holder>
   )
 }
 

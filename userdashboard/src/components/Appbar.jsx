@@ -53,7 +53,7 @@ marginTop:'10px',
 
   const Appbar = () => {
   return (
- <Box justifyContent={'space-between'} display={'flex'}>
+ <Box  className="scale-in-center" justifyContent={'space-between'} display={'flex'}>
     <Card elevation={0} sx={{backgroundColor:'whitesmoke', mb:'20px'}}>
 
 <Typography variant="body1" color="inherit">Welcome Back</Typography>

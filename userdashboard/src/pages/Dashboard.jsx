@@ -1,6 +1,11 @@
 import { Box, Grid } from "@mui/material";
 import Sidebar from '../components/Sidebar'
 import Leftbar from '../components/Leftbar'
+
+
+
+
+
 const Dashboard = () => {
     return (
         <Box sx={{padding:'5px', backgroundColor:'whitesmoke'}}>
@@ -14,7 +19,7 @@ const Dashboard = () => {
       </Grid>
       
         </Grid>
-      
+    
          </Box>
     )
 }
