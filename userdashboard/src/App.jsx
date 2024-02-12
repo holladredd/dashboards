@@ -5,6 +5,8 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Box } from '@mui/material';
 import Dashboard from './pages/Dashboard';
+import ApexCharts from 'apexcharts'
+
 function App() {
 
 
