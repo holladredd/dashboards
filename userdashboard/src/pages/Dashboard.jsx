@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
-import Sidebar from '../components/Sidebar'
-import Leftbar from '../components/Leftbar'
+import Sidebar from '../layouts/Sidebar'
+import Leftbar from '../layouts/Leftbar'
 
 
 

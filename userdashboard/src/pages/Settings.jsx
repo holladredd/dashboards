@@ -1,5 +1,5 @@
 import { Box, Grid } from "@mui/material"
-import Leftbar from "../components/Leftbar"
+import Leftbar from "../layouts/Leftbar"
 
 const Settings = () => {
   return (

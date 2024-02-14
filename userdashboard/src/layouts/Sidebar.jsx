@@ -125,12 +125,12 @@ const Sidebar = () => {
     <Typography variant="body1" color="initial">Total Product</Typography>
     <MoreVertIcon/>
     </Box>
-    <ReactApexChart
-        options={totalProduct}
-        series={totalProduct.series}
-        type="line"
-        height={'95%'}
-      />
+      <ReactApexChart
+          options={totalProduct}
+          series={totalProduct.series}
+          type="line"
+          height={'95%'}
+        />
   </Box>
 
 
