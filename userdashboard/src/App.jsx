@@ -1,4 +1,4 @@
-import './App.css'
+import './assets/styles/App.css'
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -22,10 +22,8 @@ function App() {
     <>
       <Routes >
         <Route path="/" element={<Dashboard />}  errorElement={<Errorpage/>}/>
-        <Route path="/Settings" element={<Settings />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Signup" element={<SignupForm />} />
-        <Route path="/Forgetpassword" element={<Forgetpassword />} />
+       
+       
       </Routes>
     </>
     )

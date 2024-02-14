@@ -6,7 +6,7 @@ import CampaignIcon from '@mui/icons-material/Campaign';
 import PaymentIcon from '@mui/icons-material/Payment';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import SettingsIcon from '@mui/icons-material/Settings';
-import '../App.css';
+import '../assets/styles/App.css';
 // import Data from '../Records.json';
 import styled from "@emotion/styled";
 import { motion} from 'framer-motion';

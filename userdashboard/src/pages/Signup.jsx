@@ -4,14 +4,9 @@ import Button from '@mui/material/Button';
 import { Box, Table, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import '../App.css';
+import '../assets/styles/App.css';
 
 function SignupForm() {
-    // const [username, setUsername] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [firstname, setFirstname] = useState('');
-    // const [lastname, setLastname] = useState('');
 
   const [signupData, setSignupData] = useState({
     username: '',
