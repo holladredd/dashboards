@@ -7,9 +7,12 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import SettingsIcon from '@mui/icons-material/Settings';
 import '../App.css';
+// import Data from '../Records.json';
 import styled from "@emotion/styled";
 import { motion} from 'framer-motion';
 import { Link } from "react-router-dom";
+// import axios from 'axios'
+// import { useEffect, useState } from "react";
 
 
 
@@ -66,7 +69,32 @@ const navigations =[
 ]
 const Leftbar = () => {
 
-
+// const data=()=>{
+//   fetch('./Records.json'
+//   ,{
+//     headers : { 
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//      }
+//   }
+//   )
+//    .then(function(response){
+//         console.log(response)
+//         return response.json();
+//       })
+//       .then(function(myJson) {
+//         console.log(myJson);
+//       });
+// }
+// useEffect(()=>{
+//   getData()
+// },[])
+//   const [data, setData] = useState([])
+//   useEffect(()=>{
+// axios.get('http://localhost:3000/users')
+// .then(res =>setData(res.data))
+// .catch(err => console.log(err));
+//   }, [])
   return (
 <Holder className="scale-in-center" sx={{padding:'fit'}}>
   <Card bgcolor="secondary" sx={{backgroundColor:'slateblue', height:'fit', padding:'fit', borderRadius:'10px'}}>
@@ -91,25 +119,26 @@ style={{width:'60', height:'60'}}
     src="/dredd.png"
     />
 </motion.div>
-
-    <Typography component={motion.h5} variant="h5" color="white"
+{/* {Data.map(d =>{
+  return( */}
+    <Typography  component={motion.h5} variant="h5" color="white"
 initial={{ 
     opacity: 0,
-  x:0,
+    x:0,
   y:0
   }}
   animate={{ 
-x: 2, 
-y: 4, 
-opacity: 1 }}
-whileHover={{ 
-scale:1.3
-}}
+    x: 2, 
+    y: 4, 
+    opacity: 1 }}
+    whileHover={{ 
+      scale:1.3
+    }}
     >DREDD</Typography>
+{/* )})} */}
     </Box>
     <Divider />
- <List>
-          
+ <List>      
   <Typography variant="body1 " component={motion.div} color="white" sx={{margin:'1px'}}
 initial={{ 
     opacity: 0,
@@ -124,7 +153,6 @@ whileHover={{
 scale:1.1
 }}
   >Admin Tools</Typography>
-
 
 {navigations.map((navigation, index) =>(
 

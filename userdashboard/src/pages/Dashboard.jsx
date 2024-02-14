@@ -6,7 +6,9 @@ import Leftbar from '../components/Leftbar'
 
 
 
+
 const Dashboard = () => {
+  
     return (
         <Box sx={{padding:'5px', backgroundColor:'whitesmoke'}}>
 
