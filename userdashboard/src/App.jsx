@@ -7,9 +7,7 @@ import Dashboard from './pages/Dashboard';
 import { Route, Routes, } from 'react-router-dom'
 import Settings from './pages/Settings';
 import Errorpage from './pages/Errorpage';
-import Login from './pages/Login';
-import SignupForm from './pages/Signup';
-import Forgetpassword from './pages/Forgetpassword';
+
 
 
 
