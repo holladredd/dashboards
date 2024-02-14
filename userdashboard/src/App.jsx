@@ -8,6 +8,8 @@ import { Route, Routes, } from 'react-router-dom'
 import Settings from './pages/Settings';
 import Errorpage from './pages/Errorpage';
 import Login from './pages/Login';
+import SignupForm from './pages/Signup';
+import Forgetpassword from './pages/Forgetpassword';
 
 
 
@@ -22,6 +24,8 @@ function App() {
         <Route path="/" element={<Dashboard />}  errorElement={<Errorpage/>}/>
         <Route path="/Settings" element={<Settings />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/Signup" element={<SignupForm />} />
+        <Route path="/Forgetpassword" element={<Forgetpassword />} />
       </Routes>
     </>
     )
