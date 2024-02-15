@@ -2,8 +2,9 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Box, Typography } from '@mui/material';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
 
 function Form() {
 
@@ -12,19 +13,16 @@ function Form() {
     password: '',
   });
 
-// States for checking the errors
-const [submitted, setSubmitted] = useState(false);
-const [error, setError] = useState(false);
 
   
   const handleLogin = (e) => {
     e.preventDefault();
     // Perform login logic here with loginData
     if (loginData.username === '' || loginData.password === '' ) {
-      setError(true);
+      toast.error("Please enter all the fields")
       } else {
-      setSubmitted(true);
-      setError(false);
+      toast.success(`Welcome ${loginData.username}`);
+      navi("/")
       }
   // console.log('Signup data:', signupData);
     console.log('Login data:', loginData);
@@ -35,43 +33,11 @@ const [error, setError] = useState(false);
     setLoginData({ ...loginData, [name]: value });
   };
 
-
-// Showing success message
-const successMessage = () => {
-  return (
-  <div
-  className="success"
-  style={{
-  display: submitted ? '' : 'none',
-  }}>
-  <h6>User {loginData.username}, {loginData.password}, successfully registered!!</h6>
-  </div>
-  );
-  };
-
-// Showing error message if error is true
-const errorMessage = () => {
-  return (
-  <div
-  className="error"
-  style={{
-  display: error ? '' : 'none',
-  }}>
-  <h6>Please enter all the fields</h6>
-  </div>
-  );
-};
-
-
-
+const navi =useNavigate()
   return (
   <Box sx={{ width:'100%', minHeight:'100vh', backgroundImage: "url('./background1.jpg')", backgroundRepeat: "no-repeat", backgroundSize:'cover'}}>
     <Box sx={{ backgroundColor:'whitesmoke', width:'100%', minHeight:'100dvh', position:'relative', opacity:'90%', placeItems:'center',display:'grid', }}>
-         {/* Calling to the methods */}
-         <Box className="messages">
-        {errorMessage()}
-        {successMessage()}
-        </Box>
+        
       <Box component={motion.div} sx={{width:{xs:'80%',md:'50%'}, backgroundColor:'white', padding:'10px', borderRadius:'10px',}}
        initial={{
         opacity:0,

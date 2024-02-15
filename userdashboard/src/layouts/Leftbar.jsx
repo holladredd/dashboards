@@ -7,12 +7,11 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import SettingsIcon from '@mui/icons-material/Settings';
 import '../assets/styles/App.css';
-// import Data from '../Records.json';
+import data from '../utils/Records.json';
 import styled from "@emotion/styled";
 import { motion} from 'framer-motion';
-import { Link } from "react-router-dom";
-// import axios from 'axios'
-// import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+
 
 
 
@@ -64,40 +63,17 @@ const navigations =[
     id:7,
     icon: <LogoutIcon/>,
     navname:"Log Out",
-    link:"Login"
+    link:"/Login"
   },
 ]
+
 const Leftbar = () => {
 
-// const data=()=>{
-//   fetch('./Records.json'
-//   ,{
-//     headers : { 
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//      }
-//   }
-//   )
-//    .then(function(response){
-//         console.log(response)
-//         return response.json();
-//       })
-//       .then(function(myJson) {
-//         console.log(myJson);
-//       });
-// }
-// useEffect(()=>{
-//   getData()
-// },[])
-//   const [data, setData] = useState([])
-//   useEffect(()=>{
-// axios.get('http://localhost:3000/users')
-// .then(res =>setData(res.data))
-// .catch(err => console.log(err));
-//   }, [])
+  const path = useLocation().pathname
+
   return (
-<Holder className="scale-in-center" sx={{padding:'fit'}}>
-  <Card bgcolor="secondary" sx={{backgroundColor:'slateblue', height:'fit', padding:'fit', borderRadius:'10px'}}>
+<Holder  className="scale-in-center" sx={{padding:'fit'}}>
+  <Card elevation={0} bgcolor="secondary" sx={{backgroundColor:'slateblue', height:'fit', padding:'fit', borderRadius:'10px'}}>
     <Box display={"flex"} alignItems={"center"} justifyContent={"space-around"} mb={2}>
     <motion.div initial={{ 
         opacity: 0,
@@ -119,9 +95,9 @@ style={{width:'60', height:'60'}}
     src="/dredd.png"
     />
 </motion.div>
-{/* {Data.map(d =>{
-  return( */}
-    <Typography  component={motion.h5} variant="h5" color="white"
+{data.map((d, index) =>{
+  return(
+    <Typography key={index} component={motion.h5} variant="h5" color="white"
 initial={{ 
     opacity: 0,
     x:0,
@@ -134,8 +110,8 @@ initial={{
     whileHover={{ 
       scale:1.3
     }}
-    >DREDD</Typography>
-{/* )})} */}
+    >{d?.firstname}</Typography>
+)})}
     </Box>
     <Divider />
  <List>      
@@ -156,7 +132,7 @@ scale:1.1
 
 {navigations.map((navigation, index) =>(
 
-<Box key={index} component={motion.div}
+<Box key={index} component={motion.div}  sx={{backgroundColor:path === navigation.link?'whitesmoke':'' }}
 initial={{ 
   opacity: 0,
   scale: 0.5,
@@ -164,21 +140,20 @@ initial={{
 y:0
 }}
 animate={{ 
-  x: 2, 
-  y: 4, 
+  
   scale: 1,
   opacity: 1 }}
   whileHover={{ 
     scale:1.2,
     
 }}>
-<ListItem component={Link} to={navigation.link}>
+<ListItem sx={{backgroundColor:path === navigation.link?'whitesmoke':''}} component={Link} to={navigation.link} className={`link ${path === navigation.link? 'active': ''}`}>
 
 
-  <ListItemAvatar sx={{ color:'white' }} >
+  <ListItemAvatar sx={{color:path === navigation.link?'slateblue':'white' }} >
     {navigation.icon}
     </ListItemAvatar> 
-  <ListItemText underline="none" primary={navigation.navname} sx={{ color:'white'}}/>
+  <ListItemText underline="none" primary={navigation.navname} sx={{ color:path === navigation.link?'slateblue':'white'}}/>
 
 </ListItem>
 </Box>
