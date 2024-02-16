@@ -1,6 +1,7 @@
 import { Box, Grid } from "@mui/material"
 import Leftbar from "../layouts/Leftbar"
 import Appbar from "../layouts/Appbar"
+import Productbar from "../components/Productbar"
 
 const Products = () => {
   return (
@@ -11,9 +12,8 @@ const Products = () => {
   </Grid>
   <Grid item xs={10}>
     <Appbar/>
-  
-  Settings
-Settings
+  <Productbar/>
+
   </Grid>
     
     </Grid>

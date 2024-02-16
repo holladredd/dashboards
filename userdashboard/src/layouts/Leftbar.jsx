@@ -7,10 +7,11 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import SettingsIcon from '@mui/icons-material/Settings';
 import '../assets/styles/App.css';
-// import data from '../utils/Records.json';
+import axios from 'axios';
 import styled from "@emotion/styled";
 import { motion} from 'framer-motion';
 import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
 
@@ -69,6 +70,14 @@ const navigations =[
 
 const Leftbar = () => {
 
+  const [users, setUsers] =useState([]);
+  useEffect(() => {
+
+    axios.get("https://sturdy-space-funicular-gpgv69jrqgpcw55j-3000.app.github.dev/users").then((res) => {
+ console.log(res.data);
+      // setUsers(res.data.users);
+    });
+  }, []);
   const path = useLocation().pathname
 
   return (
@@ -96,9 +105,11 @@ style={{width:'60', height:'60'}}
     />
 </motion.div>
 
+{users &&users.map(({users, id}) =>(
 
-    <Typography  component={motion.h5} variant="h5" color="white"
-initial={{ 
+  
+  <Typography key={id} component={motion.h5} variant="h5" color="white"
+  initial={{ 
     opacity: 0,
     x:0,
   y:0
@@ -110,7 +121,8 @@ initial={{
     whileHover={{ 
       scale:1.3
     }}
-    >DREDD</Typography>
+    >{users.username}</Typography>
+    ))}
 
     </Box>
     <Divider />
