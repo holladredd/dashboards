@@ -7,6 +7,7 @@ import Forgetpassword from "../pages/Forgetpassword";
 import Errorpage from "../pages/Errorpage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Products from "../pages/Products";
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
     <Routes>
         <Route path="/" element={<Dashboard/>}/>
         <Route path="/Settings" element={<Settings />} />
+        <Route path="/Products" element={<Products />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<SignupForm />} />
         <Route path="/Forgetpassword" element={<Forgetpassword />} />

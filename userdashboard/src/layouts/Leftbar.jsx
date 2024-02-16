@@ -33,7 +33,7 @@ const navigations =[
     id:2,
     icon: <InventoryIcon/>,
     navname:"Products",
-    link:"#"
+    link:"/Products"
   },
   {
     id:3,
