@@ -7,7 +7,7 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import SettingsIcon from '@mui/icons-material/Settings';
 import '../assets/styles/App.css';
-import data from '../utils/Records.json';
+// import data from '../utils/Records.json';
 import styled from "@emotion/styled";
 import { motion} from 'framer-motion';
 import { Link, useLocation } from "react-router-dom";
@@ -95,9 +95,9 @@ style={{width:'60', height:'60'}}
     src="/dredd.png"
     />
 </motion.div>
-{data.map((d, index) =>{
-  return(
-    <Typography key={index} component={motion.h5} variant="h5" color="white"
+
+
+    <Typography  component={motion.h5} variant="h5" color="white"
 initial={{ 
     opacity: 0,
     x:0,
@@ -110,8 +110,8 @@ initial={{
     whileHover={{ 
       scale:1.3
     }}
-    >{d?.firstname}</Typography>
-)})}
+    >DREDD</Typography>
+
     </Box>
     <Divider />
  <List>      
