@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../assets/styles/App.css';
 import { toast } from "react-toastify";
+import axios from "axios"
 
 function SignupForm() {
 
@@ -16,6 +17,11 @@ function SignupForm() {
     firstname:'',
     lastname:''
   });
+// const [username, setUsername] = useState()
+// const [email, setEmail] = useState()
+// const [password, setPassword] = useState()
+// const [firstname, setFirstname] = useState()
+// const [lastname, setLastname] = useState()
 
 
 
@@ -25,6 +31,7 @@ function SignupForm() {
     if (signupData.username === '' || signupData.email === '' || signupData.password === '' || signupData.firstname === '' || signupData.lastname === '') {
         toast.error("Please enter all the fields");
       } else {
+        axios.post("", {username})
         toast.success("successfully registered!!");
         navi('/Login')
         }
