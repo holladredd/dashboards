@@ -8,42 +8,39 @@ import '../assets/styles/App.css';
 import { toast } from "react-toastify";
 import axios from "axios"
 
+
+
+
 function SignupForm() {
 
-  const [signupData, setSignupData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    firstname:'',
-    lastname:''
-  });
-// const [username, setUsername] = useState()
-// const [email, setEmail] = useState()
-// const [password, setPassword] = useState()
-// const [firstname, setFirstname] = useState()
-// const [lastname, setLastname] = useState()
+
+const [username, setUsername] = useState()
+const [email, setEmail] = useState()
+const [password, setPassword] = useState()
+const [fname, setFname] = useState()
+const [lname, setLname] = useState()
+
+const navigate = useNavigate()
 
 
-
-  const handleSignup = (e) => {
+  const submit = (e) => {
     e.preventDefault();
     // Perform signup logic here with signupData
-    if (signupData.username === '' || signupData.email === '' || signupData.password === '' || signupData.firstname === '' || signupData.lastname === '') {
+    if (username === '' || email === '' || password === '' || fname === '' || lname === '') {
         toast.error("Please enter all the fields");
       } else {
-        axios.post("", {username})
-        toast.success("successfully registered!!");
-        navi('/Login')
+        axios.post("http://localhost:5000/Signup", {username, email, password, fname, lname})
+        .then(res =>{
+          console.log(res)
+          toast.success("successfully registered!!");
+          navigate('/Login')
+        })
+        .catch(err => console.log(err))
         }
-    // console.log('Signup data:', signupData);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setSignupData({ ...signupData, [name]: value });
-  };
 
-const navi = useNavigate()
+
   return (
     <Box sx={{ width:'100%', minHeight:'100vh', backgroundImage: "url('./background1.jpg')", backgroundRepeat: "no-repeat", backgroundSize:'cover'}}>
     <Box sx={{ backgroundColor:'whitesmoke', width:'100%', minHeight:'100dvh', position:'relative', opacity:'90%', placeItems:'center',display:'grid', }}>
@@ -73,7 +70,7 @@ const navi = useNavigate()
     >
 
 
-    <form onSubmit={handleSignup}>
+    <form onSubmit={submit}>
         
     <Typography variant="h3" color="initial" sx={{textAlign:'center'}}> SIGN UP PAGES</Typography>
     <TextField
@@ -85,8 +82,8 @@ const navi = useNavigate()
           margin="normal"
       name="firstname"
       type="text"
-      value={signupData.firstname}
-      onChange={handleChange}
+    
+      onChange={(e) =>setFname(e.target.value)}
       required
     />
     <TextField
@@ -97,8 +94,8 @@ const navi = useNavigate()
           margin="normal"
       name="lastname"
       type="text"
-      value={signupData.lastname}
-      onChange={handleChange}
+   
+      onChange={(e) =>setLname(e.target.value)}
       required
     />
     <TextField
@@ -108,18 +105,18 @@ const navi = useNavigate()
           margin="normal"
       name="email"
       type="email"
-      value={signupData.email}
-      onChange={handleChange}
+      
+      onChange={(e) =>setEmail(e.target.value)}
       required
     />
       <TextField
         label="Username"
         variant="outlined"
         fullWidth
-            margin="normal"
+        margin="normal"
         name="username"
-        value={signupData.username}
-        onChange={handleChange}
+
+        onChange={(e) =>setUsername(e.target.value)}
         required
       />
       <TextField
@@ -129,8 +126,8 @@ const navi = useNavigate()
             margin="normal"
         name="password"
         type="password"
-        value={signupData.password}
-        onChange={handleChange}
+        
+        onChange={(e) =>setPassword(e.target.value)}
         required
       />
       <Box sx={{display:'flex', justifyContent:'space-around'}}>

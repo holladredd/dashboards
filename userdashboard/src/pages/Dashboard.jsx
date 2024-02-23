@@ -1,14 +1,17 @@
 import { Box, Grid } from "@mui/material";
-import Sidebar from '../layouts/Sidebar'
 import Leftbar from '../layouts/Leftbar'
-
-
+import {Outlet} from 'react-router-dom'
+import Appbar from "../layouts/Appbar";
+import { useLocation } from "react-router-dom";
+import SearchBar from "../layouts/SearchBar";
 
 
 
 
 const Dashboard = () => {
-  
+
+  const { pathname } = useLocation();
+  // const pathName =["Overview","Settings"]
     return (
         <Box sx={{padding:'5px', backgroundColor:'whitesmoke'}}>
 
@@ -17,7 +20,10 @@ const Dashboard = () => {
         <Leftbar/>
       </Grid>
       <Grid item xs={10}>
-      <Sidebar/>
+      {pathname !== "/Dashboard/Settings" && pathname !== "/Dashboard/Products" && <Appbar />}
+      {pathname == "/Dashboard/Products" && <SearchBar />}
+
+      <Outlet/>
       </Grid>
       
         </Grid>

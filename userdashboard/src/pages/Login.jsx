@@ -5,35 +5,45 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 function Form() {
+  const navigate =useNavigate()
 
-  const [loginData, setLoginData] = useState({
-    username: '',
-    password: '',
-  });
 
+  const [username, setUsername] = useState()
+  const [password, setPassword] = useState()
 
   
-  const handleLogin = (e) => {
+  async function submit(e){
     e.preventDefault();
-    // Perform login logic here with loginData
-    if (loginData.username === '' || loginData.password === '' ) {
-      toast.error("Please enter all the fields")
-      } else {
-      toast.success(`Welcome ${loginData.username}`);
-      navi("/")
+  
+try{
+  await axios.post("http://localhost:5000/users", {username,password})
+  
+    .then(res =>{
+      if(res.data=="exist"){
+        toast.success("Successful Logged In!!!")
+        navigate("/Dashboard", {state:{id:username}})
+        
       }
-  // console.log('Signup data:', signupData);
-    console.log('Login data:', loginData);
-  };
+      else if(res.data=="notexist"){
+        toast.error("Wrong Details or user not exist")
+      }
+    })
+    .catch(e=>{
+      console.log(e)
+    })
+}
+catch(e){
+  console.log(e)
+}
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setLoginData({ ...loginData, [name]: value });
-  };
+  }
 
-const navi =useNavigate()
+
+
+
   return (
   <Box sx={{ width:'100%', minHeight:'100vh', backgroundImage: "url('./background1.jpg')", backgroundRepeat: "no-repeat", backgroundSize:'cover'}}>
     <Box sx={{ backgroundColor:'whitesmoke', width:'100%', minHeight:'100dvh', position:'relative', opacity:'90%', placeItems:'center',display:'grid', }}>
@@ -59,7 +69,7 @@ const navi =useNavigate()
         }}
       >
 
-        <form onSubmit={handleLogin}>
+        <form onSubmit={submit}>
         <Typography variant="h3" color="initial" sx={{textAlign:'center'}}> LOG IN PAGES</Typography>
           <TextField
             label="Username"
@@ -67,8 +77,8 @@ const navi =useNavigate()
             name='username'
             fullWidth
             margin="normal"
-            value={loginData.username}
-        onChange={handleChange}
+            value={username}
+        onChange={(e)=> setUsername(e.target.value)}
         required
           />
           <TextField
@@ -78,8 +88,8 @@ const navi =useNavigate()
             variant="outlined"
             fullWidth
             margin="normal"
-            value={loginData.password}
-        onChange={handleChange}
+            value={password}
+        onChange={(e)=> setPassword(e.target.value)}
         required
           />
           <Box sx={{display:'flex', justifyContent:'space-around'}}>
